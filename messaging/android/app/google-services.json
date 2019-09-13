@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "299109452965",
+    "firebase_url": "https://sparky-pilots.firebaseio.com",
+    "project_id": "sparky-pilots",
+    "storage_bucket": "sparky-pilots.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299109452965:android:752bf8b269ba7f0f",
+        "android_client_info": {
+          "package_name": "org.norc.sparky"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299109452965-6ma9pfmr16fm0cfm80mom50430330ksm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN7W6FYwuPuHJ0jTJuASA6gh5kVuo-ahY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299109452965-6ma9pfmr16fm0cfm80mom50430330ksm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299109452965:android:007eb1df2591bfb0",
+        "android_client_info": {
+          "package_name": "org.norc.sparky2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299109452965-6ma9pfmr16fm0cfm80mom50430330ksm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN7W6FYwuPuHJ0jTJuASA6gh5kVuo-ahY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299109452965-6ma9pfmr16fm0cfm80mom50430330ksm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
