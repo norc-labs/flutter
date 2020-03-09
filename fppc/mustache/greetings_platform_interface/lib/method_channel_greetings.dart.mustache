@@ -1,0 +1,25 @@
+import 'dart:async';
+
+import 'package:flutter/services.dart';
+import 'package:meta/meta.dart' show required;
+
+import '{{package.dart}}_platform_interface.dart';
+
+const MethodChannel _channel = MethodChannel('{{package.java}}/{{plugin-class}}');
+
+/// An implementation of [{{plugin-class}}Platform] that uses method channels.  This
+/// implementation works for all channel-based platforms, i.e. Android and iOS
+/// (and Mac?)
+class MethodChannel{{plugin-class}} extends {{plugin-class}}Platform {
+  @override
+  Future<String> get greeting async {
+    final String _greeting = await _channel.invokeMethod<String>('greeting');
+    return _greeting;
+  }
+
+  Future<String> get platformVersion async {
+    final String version = await _channel.invokeMethod('getPlatformVersion');
+    return version;
+  }
+
+}

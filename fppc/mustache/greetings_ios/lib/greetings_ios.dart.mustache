@@ -1,0 +1,20 @@
+// apps include this file in order to access the api.
+// it delegates calls to platform implementations.
+
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:{{package.dart}}_platform_interface/{{package.dart}}_platform_interface.dart';
+class {{plugin-class}}Plugin extends {{plugin-class}}Platform {
+  /// Registers this class as the default instance of [{{plugin-class}}Platform].
+  static void registerWith(Registrar registrar) {
+    print("ios registerWith");
+    {{plugin-class}}Platform.instance = {{plugin-class}}Plugin();
+  }
+
+  String greeting() {
+    return {{plugin-class}}Platform.instance.greeting();
+  }
+}

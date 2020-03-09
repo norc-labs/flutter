@@ -1,0 +1,62 @@
+// Copyright 2017 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import 'package:mockito/mockito.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+
+import 'package:{{package.dart}}_platform_interface/method_channel_{{package.dart}}.dart';
+import 'package:{{package.dart}}_platform_interface/{{package.dart}}_platform_interface.dart';
+
+void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  group('${{plugin-class}}Platform', () {
+    test('$MethodChannel{{plugin-class}}() is the default instance', () {
+      expect({{plugin-class}}Platform.instance,
+          isInstanceOf<MethodChannel{{plugin-class}}>());
+    });
+
+    test('Cannot be implemented with `implements`', () {
+      expect(() {
+        {{plugin-class}}Platform.instance = Implements{{plugin-class}}Platform();
+      }, throwsA(isInstanceOf<AssertionError>()));
+    });
+
+    test('Can be mocked with `implements`', () {
+      final {{plugin-class}}PlatformMock mock = {{plugin-class}}PlatformMock();
+      {{plugin-class}}Platform.instance = mock;
+    });
+
+    test('Can be extended', () {
+      {{plugin-class}}Platform.instance = Extends{{plugin-class}}Platform();
+    });
+  });
+
+  group('$MethodChannel{{plugin-class}}', () {
+    const MethodChannel channel =
+        MethodChannel('{{package.java}}/{{plugin-class}}');
+    final List<MethodCall> log = <MethodCall>[];
+    channel.setMockMethodCallHandler((MethodCall methodCall) async {
+      log.add(methodCall);
+    });
+
+    final MethodChannel{{plugin-class}} launcher = MethodChannel{{plugin-class}}();
+
+    tearDown(() {
+      log.clear();
+    });
+
+  });
+}
+
+class {{plugin-class}}PlatformMock extends Mock
+    with MockPlatformInterfaceMixin
+    implements {{plugin-class}}Platform {}
+
+class Implements{{plugin-class}}Platform extends Mock
+    implements {{plugin-class}}Platform {}
+
+class Extends{{plugin-class}}Platform extends {{plugin-class}}Platform {}

@@ -1,0 +1,17 @@
+name: fppc
+description: Flutter Platform-Portable Components
+version: 0.1.0
+
+dependencies:
+  mustache: ^1.1.1
+  # mustache4dart: # ^2.1.2
+  #   path: ../mustache4dart
+  args: ^1.5.3
+  path: ^1.6.4
+  process_run: ^0.10.7
+  strings: ^0.1.2
+
+dev_dependencies:
+
+environment:
+  sdk: '>=2.6.0 <3.0.0'

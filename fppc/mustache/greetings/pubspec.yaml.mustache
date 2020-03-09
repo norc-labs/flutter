@@ -1,0 +1,46 @@
+name: {{package.dart}}
+description: {{description.component}}
+version: {{version.package}}
+
+environment:
+  sdk: {{version.sdk}}
+  flutter: {{version.flutter}}
+
+dependencies:
+  flutter:
+    sdk: flutter
+  {{package.dart}}_platform_interface:
+    path: ../{{package.dart}}_platform_interface
+  # The design on https://flutter.dev/go/federated-plugins was to leave
+  # this constraint as "any". We cannot do it right now as it fails pub publish
+  # validation, so we set a ^ constraint.
+  # TODO(amirh): Revisit this (either update this part in the  design or the pub tool).
+  # https://github.com/flutter/flutter/issues/46264
+  {{package.dart}}_android:
+    path: ../{{package.dart}}_android
+  {{package.dart}}_ios:
+    path: ../{{package.dart}}_ios
+  {{package.dart}}_web:
+    path: ../{{package.dart}}_web
+  {{package.dart}}_macos:
+    path: ../{{package.dart}}_macos
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  test: {{version.test}}
+  mockito: {{version.mockito}}
+  plugin_platform_interface: {{version.plugin-platform-interface}}
+  pedantic: {{version.pedantic}}
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        default_package: {{package.dart}}_android
+      ios:
+        default_package: {{package.dart}}_ios
+      macos:
+        default_package: {{package.dart}}_macos
+      web:
+        default_package: {{package.dart}}_web

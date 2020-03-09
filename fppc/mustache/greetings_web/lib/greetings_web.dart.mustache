@@ -1,0 +1,29 @@
+import 'dart:async';
+import 'dart:html' as html;
+
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:meta/meta.dart';
+import 'package:platform_detect/platform_detect.dart';
+
+import 'package:{{package.dart}}_platform_interface/{{package.dart}}_platform_interface.dart';
+
+/// The web implementation of [{{plugin-class}}Platform].
+///
+/// This class implements the `package:{{package.dart}}` functionality for the web.
+class {{plugin-class}}Plugin extends {{plugin-class}}Platform {
+  /// Registers this class as the default instance of [{{plugin-class}}Platform].
+  static void registerWith(Registrar registrar) {
+    print("web registerWith");
+    {{plugin-class}}Platform.instance = {{plugin-class}}Plugin();
+  }
+
+  @override
+  Future<String> get greeting async {
+    return Future<String>.value("Hello from ${operatingSystem.name}!");
+  }
+
+
+  Future<String> get platformVersion async {
+    return "${operatingSystem.name} ${browser.name} ${browser.version}";
+  }
+}

@@ -1,0 +1,23 @@
+// apps include this file in order to access the api.
+// it delegates calls to platform implementations.
+
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:{{package.dart}}_platform_interface/{{package.dart}}_platform_interface.dart';
+
+Future<String> get greeting async {
+  return {{plugin-class}}Platform.instance.greeting;
+}
+
+Future<String> getPlatformVersion() async {
+  try {
+    final String version = await {{plugin-class}}Platform.instance.platformVersion;
+    return version;
+  } catch (err) {
+    print("$err");
+  }
+}
+

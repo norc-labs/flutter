@@ -1,0 +1,29 @@
+name: {{package.dart}}_web
+description: Web platform implementation of {{package.dart}}
+version: 0.0.1
+
+flutter:
+  plugin:
+    platforms:
+      web:
+        pluginClass: {{plugin-class}}Plugin
+        fileName: {{package.dart}}_web.dart
+
+dependencies:
+  flutter:
+    sdk: flutter
+  {{package.dart}}_platform_interface: # ^0.0.1
+    path: ../{{package.dart}}_platform_interface
+  flutter_web_plugins:
+    sdk: flutter
+  platform_detect: {{version.platform-detect}}
+  meta: {{version.meta}}
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pedantic: {{version.pedantic}}
+
+environment:
+  sdk: {{version.sdk}}
+  flutter: {{version.flutter}}

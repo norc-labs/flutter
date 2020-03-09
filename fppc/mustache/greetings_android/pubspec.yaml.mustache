@@ -1,0 +1,25 @@
+name: {{package.dart}}_android
+description: {{description.component}}
+version: {{version.package}}
+
+environment:
+  sdk: {{version.sdk}}
+  flutter: {{version.flutter}}
+
+dependencies:
+  flutter:
+    sdk: flutter
+  {{package.dart}}_platform_interface:
+    path: ../{{package.dart}}_platform_interface
+
+# dev_dependencies:
+#   flutter_test:
+#     sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: {{package.java}}
+        pluginClass: {{plugin-class}}Plugin
+

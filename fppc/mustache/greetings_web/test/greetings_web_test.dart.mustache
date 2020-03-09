@@ -1,0 +1,25 @@
+// Copyright 2019 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+@TestOn('chrome') // Uses web-only Flutter SDK
+
+import 'dart:html' as html;
+
+import 'package:flutter_test/flutter_test.dart';
+import 'package:{{package.dart}}/{{package.dart}}.dart';
+import 'package:{{package.dart}}_web/{{package.dart}}_web.dart';
+import 'package:{{package.dart}}_platform_interface/{{package.dart}}_platform_interface.dart';
+
+void main() {
+  group('{{package.dart}} Web Tests', () {
+    setUp(() {
+      {{plugin-class}}Platform.instance = {{plugin-class}}Plugin();
+    });
+
+    test('${{plugin-class}}Plugin is the live instance', () {
+      expect({{plugin-class}}Platform.instance, isA<{{plugin-class}}Plugin>());
+    });
+
+  });
+}

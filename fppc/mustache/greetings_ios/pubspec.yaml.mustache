@@ -1,0 +1,27 @@
+name: {{package.dart}}_ios
+description: A flutter federated plugin demo.
+version: 0.0.1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+  flutter: ">=1.12.8 <2.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  {{package.dart}}_platform_interface:
+    path: ../{{package.dart}}_platform_interface
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  test: {{version.test}}
+  mockito: {{version.mockito}}
+  plugin_platform_interface: {{version.plugin-platform-interface}}
+  pedantic: {{version.pedantic}}
+
+flutter:
+  plugin:
+    platforms:
+      ios:
+        pluginClass: {{plugin-class}}Plugin

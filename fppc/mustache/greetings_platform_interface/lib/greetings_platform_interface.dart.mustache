@@ -1,0 +1,51 @@
+// Copyright 2017 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+import 'dart:async';
+
+import 'package:meta/meta.dart' show required;
+import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+
+import 'method_channel_{{package.dart}}.dart';
+
+/// The interface that implementations of {{package.dart}} must implement.
+///
+/// Platform implementations should extend this class rather than implement it as `{{package.dart}}`
+/// does not consider newly added methods to be breaking changes. Extending this class
+/// (using `extends`) ensures that the subclass will get the default implementation, while
+/// platform implementations that `implements` this interface will be broken by newly added
+/// [{{plugin-class}}Platform] methods.
+abstract class {{plugin-class}}Platform extends PlatformInterface {
+  /// Constructs a {{plugin-class}}Platform.
+  {{plugin-class}}Platform() : super(token: _token);
+
+  static final Object _token = Object();
+
+  static {{plugin-class}}Platform _instance = MethodChannel{{plugin-class}}();
+
+  /// The default instance of [{{plugin-class}}Platform] to use.
+  ///
+  /// Defaults to [MethodChannel{{plugin-class}}].
+  static {{plugin-class}}Platform get instance => _instance;
+
+  /// Platform-specific plugins should set this with their own platform-specific
+  /// class that extends [{{plugin-class}}Platform] when they register themselves.
+  // TODO(amirh): Extract common platform interface logic.
+  // https://github.com/flutter/flutter/issues/43368
+  static set instance({{plugin-class}}Platform instance) {
+    print("platform interface set instance: $instance");
+    PlatformInterface.verifyToken(instance, _token);
+    print("verified");
+    _instance = instance;
+  }
+
+  Future<String> get greeting async {
+    throw UnimplementedError('get greeting has not been implemented.');
+  }
+
+  Future<String> get platformVersion async {
+    throw UnimplementedError('get platformVersion has not been implemented.');
+  }
+
+}

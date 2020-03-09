@@ -1,0 +1,24 @@
+name: {{package.dart}}_macos
+description: macOS implementation of the {{package.dart}} plugin.
+version: {{version.package}}
+
+flutter:
+  plugin:
+    platforms:
+      macos:
+        pluginClass: {{plugin-class}}Plugin
+        fileName: {{package.dart}}_macos.dart
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pedantic: {{version.pedantic}}
+
+environment:
+  sdk: {{version.sdk}}
+  flutter: {{version.flutter}}
+

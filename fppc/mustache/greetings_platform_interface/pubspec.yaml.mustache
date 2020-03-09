@@ -1,0 +1,21 @@
+name: {{package.dart}}_platform_interface
+description: A common platform interface for the {{package.dart}} plugin.
+# NOTE: We strongly prefer non-breaking changes, even at the expense of a
+# less-clean API. See https://flutter.dev/go/platform-interface-breaking-changes
+version: {{version.package}}
+
+dependencies:
+  flutter:
+    sdk: flutter
+  meta: {{version.meta}}
+  plugin_platform_interface: {{version.plugin-platform-interface}}
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mockito: {{version.mockito}}
+  pedantic: {{version.pedantic}}
+
+environment:
+  sdk: {{version.sdk}}
+  flutter: {{version.flutter}}
