@@ -18,7 +18,7 @@ class {{plugin-class}}Plugin extends {{plugin-class}}Platform {
 
   @override
   Future<String> get greeting async {
-    return Future<String>.value("Hello from ${operatingSystem.name}!");
+    return Future<String>.value("Hello from ${browser.name} on ${operatingSystem.name}!");
   }
 
 
