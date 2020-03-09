@@ -1,7 +1,26 @@
-= Flutter Platform-Portable Components
+= Flutter Platform-Portable Component Template
+
+Command line app to generate a portable (cross-platform) package.
 
 Usage:
 
+Help:
 ```
 $ dart main.dart -h
+```
+
+Example:
+
+```
+$ dart main.dart -o org.norc.dept -p myapp
+```
+
+This will generate the component bits in subdirectory `myapp`.  Test it:
+
+```
+$ cd myapp
+$ flutter pub get
+$ flutter run -d chrome
+or
+$ flutter run -d <device> # if you have a mobile connected
 ```
