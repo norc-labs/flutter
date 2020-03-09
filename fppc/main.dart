@@ -18,12 +18,20 @@ void transformDirectory(String source, String destination, Map data) {
   List files = inDir.listSync(recursive: true);
   files.removeWhere((f) => f.path.endsWith("~"));
 
+  var orgSegs = data["org"].replaceAll(".", "/");
+
   List dirs = List.from(files);
   dirs.retainWhere((f) => f is Directory);
   dirs.forEach((d) {
       var od = d.path.replaceAll('mustache', data['package']['dart']);
       od = od.replaceAll('greetings', data['package']['dart']);
-      var outDir = Directory(od);
+      print("dir: $od");
+      var segs = od.split("org/example");
+      // print("segs: $segs");
+      var out = segs.join(orgSegs);
+      print("out: $out");
+      var outDir = Directory(out);
+
       // print(outDir);
       outDir.createSync(recursive: true);
   });
@@ -41,11 +49,13 @@ void transformDirectory(String source, String destination, Map data) {
   files.forEach((f) {
       var of = f.path.replaceAll(RegExp('^mustache'), data['package']['dart']);
       of = of.replaceAll('greetings', data['package']['dart']);
+
       var outFile = File(of);
-      print("COPY: $f");
-      print(" => $outFile");
+      // print("COPY: $f");
+      // print(" => $outFile");
       f.copySync(of);
   });
+
 
   templates.retainWhere((f) => f.path.endsWith("mustache"));
   templates.forEach((t) {
@@ -53,8 +63,15 @@ void transformDirectory(String source, String destination, Map data) {
       out = out.replaceAll('Greetings', data['plugin-class']);
       out = out.replaceFirst(RegExp('^mustache'), data['package']['dart'])
       .replaceFirst(RegExp('\.mustache\$'), '');
-      print(t);
-      print(" => $out");
+
+      var segs = out.split("org/example");
+      print("file: $out");
+      print("segs: $segs");
+      out = segs.join(orgSegs);
+      print("out: $out");
+
+     // print(t);
+      // print(" => $out");
       var contents;
       contents = t.readAsStringSync();
       var template = Template(contents, name: t.path, htmlEscapeValues: false);
@@ -167,5 +184,5 @@ void main(List<String> args) {
   print("outDir: $outDir");
   transformDirectory(inDir, outDir, data);
 
-  // print(data);
+  print(data);
 }
