@@ -18,7 +18,7 @@ $ dart main.dart -o org.norc.dept -p myapp
 This will generate the component bits in subdirectory `myapp`.  Test it:
 
 ```
-$ cd myapp
+$ cd myapp/myappDemo
 $ flutter pub get
 $ flutter run -d chrome
 or
