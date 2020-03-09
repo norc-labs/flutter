@@ -13,7 +13,6 @@ import 'package:{{package.dart}}_platform_interface/{{package.dart}}_platform_in
 class {{plugin-class}}Plugin extends {{plugin-class}}Platform {
   /// Registers this class as the default instance of [{{plugin-class}}Platform].
   static void registerWith(Registrar registrar) {
-    print("web registerWith");
     {{plugin-class}}Platform.instance = {{plugin-class}}Plugin();
   }
 
